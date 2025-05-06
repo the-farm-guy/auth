@@ -1,0 +1,5 @@
+.pixi
+*.egg-info
+.ruff_cache/
+src/
+__pycache__/

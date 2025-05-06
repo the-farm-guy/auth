@@ -1,0 +1,47 @@
+[workspace]
+authors = ["name <mail@email.com>"]
+channels = ["conda-forge"]
+name = "pixi"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+fmt = "ruff format ."
+lint = "pylint src tests"
+test = "pytest"
+terminal = "python3"
+
+task = "go-task"
+task-lint = "go-task lint"
+task-format = "go-task format"
+task-test = "go-task test"
+task-test-cov = "go-task test:cov"
+
+[dependencies]
+numpy = "*"
+pytest = ">=8.3.5,<9"
+pytest-cov = ">=6.1.1,<7"
+pylint = ">=3.3.6,<4"
+alembic = ">=1.15.2,<2"
+pyjwt = ">=2.10.1,<3"
+passlib = ">=1.7.4,<2"
+python-jose = ">=3.4.0,<4"
+bcrypt = ">=4.3.0,<5"
+iniconfig = ">=2.0.0,<3"
+
+[feature.test.pypi-dependencies]
+pytest = "*"
+pytest-cov = "*"
+
+[feature.dev.pypi-dependencies]
+ruff = "*"
+pydantic = "*"
+sqlalchemy = "*"
+sqlmodel = "*"
+fastapi = { version = "*", extras = ["standard"] }
+
+[environments.default]
+features = ["dev", "test"]
+
+[environments.dev]
+features = ["dev"]
