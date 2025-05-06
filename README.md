@@ -1,1 +1,1 @@
-## The branch with submodule
+## Branch with submodule
