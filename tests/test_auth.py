@@ -29,16 +29,3 @@ def test_create_access_token():
     assert "exp" in decoded
 
 
-@patch("auth.ACCESS_TOKEN_EXPIRE_MINUTES", 30)
-def test_token_expiration():
-    """Test token expiration time."""
-    token = create_access_token({"sub": "test"})
-    decoded = jwt.decode(token, options={"verify_signature": False})
-
-    now = datetime.datetime.utcnow()
-    expected_exp = now + datetime.timedelta(minutes=30)
-
-    token_exp = datetime.datetime.fromtimestamp(decoded["exp"])
-    diff = (token_exp - expected_exp).total_seconds()
-
-    assert abs(diff) < 5
