@@ -1,0 +1,30 @@
+version: "3"
+
+includes:
+  tasks: tasks-configuration/taskfile_main.yaml
+  
+tasks:
+  lint:
+    desc: "Runs the ruff linter"
+    cmds:
+      - task --taskfile tasks-configuration/taskfile_main.yaml lint
+
+  format:
+    desc: "Formats the code"
+    cmds:
+      - task --taskfile tasks-configuration/taskfile_main.yaml format
+
+  fix:
+    desc: "Fixes the code"
+    cmds:
+      - task --taskfile tasks-configuration/taskfile_main.yaml fix
+
+  test:
+    desc: "Runs the tests"
+    cmds:
+      - task tasks:test
+
+  test:cov:
+    desc: "Runs the tests with coverage"
+    cmds:
+      - task tasks:test:cov
