@@ -32,4 +32,3 @@ def db_session(db_engine):
 
     yield session
     session.close()
-

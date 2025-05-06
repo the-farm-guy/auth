@@ -1,7 +1,4 @@
-import pytest
 import jwt
-import datetime
-from unittest.mock import patch
 import sys
 import os
 
@@ -27,5 +24,3 @@ def test_create_access_token():
 
     assert decoded["sub"] == str(user_id)
     assert "exp" in decoded
-
-

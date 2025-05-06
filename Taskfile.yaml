@@ -17,6 +17,12 @@ tasks:
     cmds:
       - echo "Formatting code..."
       - pixi run ruff format .
+
+  fix:
+    desc: Fix the code with ruff
+    cmds:
+      - echo "Fixing code ..."
+      - pixi run ruff check . --fix
       
   test:
     desc: Run pytest
