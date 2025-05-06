@@ -34,4 +34,5 @@ tasks:
     desc: Run pytest with coverage
     cmds:
       - echo "Running tests with coverage..."
-      - pixi run pytest --cov=src tests/
+      - pixi run pytest --cov=. tests/
+      - pixi run coverage html
