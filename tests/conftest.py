@@ -33,10 +33,3 @@ def db_session(db_engine):
     yield session
     session.close()
 
-
-# Uncomment if you have a FastAPI app to test
-# @pytest.fixture(scope="function")
-# def client():
-#     """Create a test client for the FastAPI app."""
-#     from fastapi.testclient import TestClient
-#     return TestClient(fastapi_app)
